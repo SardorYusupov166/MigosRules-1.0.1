@@ -33,5 +33,5 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: MigosRules-mc1.21.11
-          path: build/libs/migos-rules-1.0.0.jar
+          path: build/libs/migos-rules-*.jar
           if-no-files-found: error
