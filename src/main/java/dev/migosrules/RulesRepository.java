@@ -21,7 +21,7 @@ public final class RulesRepository {
     private static final Gson JSON = new GsonBuilder().setPrettyPrinting().create();
     private static final String BASE = "https://forum.migosmc.net";
     private static final Path CACHE = MinecraftClient.getInstance().runDirectory.toPath()
-        .resolve("config/chatsorter/migos-rules.json");
+        .resolve("config/migosrules/migos-rules.json");
     public static volatile Snapshot snapshot = new Snapshot("", List.of());
     public static volatile String status = "Нажмите «Обновить», чтобы загрузить правила с форума";
     public static volatile boolean busy;
@@ -134,7 +134,7 @@ public final class RulesRepository {
     }
     private static Document fetch(String url) throws Exception {
         if (!URI.create(url).getHost().equals("forum.migosmc.net")) throw new IllegalArgumentException("Unexpected host");
-        var response = Jsoup.connect(url).userAgent("MigosRules/1.0 (ChatSorter; public rules reader)")
+        var response = Jsoup.connect(url).userAgent("MigosRules/1.0.2 (public rules reader)")
             .timeout(15000).maxBodySize(4 * 1024 * 1024).followRedirects(true).execute();
         if (!response.url().getHost().equals("forum.migosmc.net")) throw new IllegalArgumentException("Unexpected redirect");
         return response.parse();

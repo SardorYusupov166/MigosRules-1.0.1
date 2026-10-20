@@ -1,7 +1,7 @@
 plugins { id 'net.fabricmc.fabric-loom-remap' version '1.14.10' }
 version = project.mod_version
 group = 'dev.migosrules'
-base { archivesName = 'migos-rules-mc1.21.9' }
+base { archivesName = 'migos-rules' }
 repositories { mavenCentral() }
 dependencies {
  implementation include("org.jsoup:jsoup:1.18.3")
